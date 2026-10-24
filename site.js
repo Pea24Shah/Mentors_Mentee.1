@@ -77,7 +77,7 @@
             consoleLink.dataset.staffConsole = 'true';
             slot.replaceChildren(divider, consoleLink, signOutButton);
         } else {
-            slot.replaceChildren(divider, makeLink('/login.html', 'Staff sign in', 'btn-signin'));
+            slot.replaceChildren(divider, makeLink('./login.html', 'Staff sign in', 'btn-signin'));
         }
         markCurrent();
     }
