@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches - SJSU Mentor Match</title>
+    <link rel="stylesheet" href="sjsu-theme.css">
+    <link rel="stylesheet" href="mentor-system.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="console.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">🎓 SJSU Mentor Match</a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="/">Home</a>
+                <a href="/survey.html?role=student">Student survey</a>
+                <a href="/survey.html?role=mentor">Mentor survey</a>
+                <a href="/orientation.html">Orientation</a>
+                <span id="staffNav" class="staff-nav"></span>
+            </nav>
+        </div>
+    </header>
+    <nav class="console-tabs" id="consoleTabs"></nav>
+
+    <main class="wrap console-main" id="main" tabindex="-1">
+        <section class="timeline" id="timeline" aria-label="Program timeline"></section>
+        <section class="strip-kpis" id="stripKpis" aria-label="Program summary"></section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <div>
+                    <div class="eyebrow">Students paired with mentors</div>
+                    <h2>Matches</h2>
+                </div>
+                <div class="toolbar">
+                    <a class="btn" id="csvLink" href="/api/console/matches.csv" download>Download as CSV</a>
+                    <button type="button" class="btn danger" id="unmatchBtn">Unmatch all</button>
+                </div>
+            </div>
+
+            <div class="confirmbar" id="confirmBar" role="group" aria-labelledby="confirmTitle" hidden>
+                <h3 id="confirmTitle"></h3>
+                <p>Every student and mentor goes back into the pool so matching can run again. Their survey answers are kept. A backup of the matches is saved first, so you can undo this.</p>
+                <label class="check"><input type="checkbox" id="forgetDenials"> Also forget the pairs staff denied, so every pair is offered again</label>
+                <div class="actions">
+                    <button type="button" class="btn danger" id="confirmYes">Yes, unmatch all</button>
+                    <button type="button" class="btn" id="confirmNo">Cancel</button>
+                </div>
+            </div>
+
+            <div class="sendbar" id="notice" role="status" hidden>
+                <span class="msg" id="noticeMsg"></span>
+                <span class="actions"><button type="button" class="btn primary" id="undoBtn" hidden>Undo</button></span>
+            </div>
+            <p class="status-line" id="matchError" role="alert" hidden></p>
+
+            <div class="hw-sum" id="matchSummary"></div>
+
+            <div class="toolbar controls" id="controls">
+                <div class="seg" role="group" aria-label="What to show" id="viewSwitch">
+                    <button type="button" aria-pressed="true" data-v="pairs" id="viewPairs">Matched pairs</button>
+                    <button type="button" aria-pressed="false" data-v="open" id="viewOpen">Without a match</button>
+                </div>
+                <input type="search" id="matchSearch" placeholder="Search by name or email" aria-label="Search by name or email">
+                <div class="seg" role="group" aria-label="Filter by how the match was made" id="methodFilter">
+                    <button type="button" aria-pressed="true" data-m="all">All</button>
+                    <button type="button" aria-pressed="false" data-m="auto">Automatic</button>
+                    <button type="button" aria-pressed="false" data-m="staff">Chosen by staff</button>
+                </div>
+                <select id="matchSort" aria-label="Sort matches">
+                    <option value="score">Highest match first</option>
+                    <option value="new">Newest first</option>
+                    <option value="student">Student A–Z</option>
+                    <option value="mentor">Mentor A–Z</option>
+                </select>
+            </div>
+
+            <div class="match-grid" id="matchGrid"></div>
+            <div class="match-grid" id="openGrid" hidden></div>
+            <div class="empty" id="matchEmpty" hidden></div>
+        </section>
+    </main>
+
+    <dialog id="picker" class="picker" aria-labelledby="pickerTitle">
+        <div class="picker-head">
+            <div>
+                <h3 id="pickerTitle"></h3>
+                <p class="muted" id="pickerSub"></p>
+            </div>
+            <button type="button" class="btn small" id="pickerClose">Cancel</button>
+        </div>
+        <p class="status-line" id="pickerError" role="alert" hidden></p>
+        <label class="check picker-block" id="pickerBlockWrap" hidden><input type="checkbox" id="pickerBlock" checked> <span id="pickerBlockText"></span></label>
+        <div class="picker-list" id="pickerList"></div>
+    </dialog>
+
+    <script src="site.js"></script>
+    <script src="console.js"></script>
+    <script src="matches.js"></script>
+</body>
+</html>

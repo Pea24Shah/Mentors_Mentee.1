@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientation - SJSU Mentor Match</title>
+    <link rel="stylesheet" href="sjsu-theme.css">
+    <link rel="stylesheet" href="mentor-system.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="console.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">🎓 SJSU Mentor Match</a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="/">Home</a>
+                <a href="/survey.html?role=student">Student survey</a>
+                <a href="/survey.html?role=mentor">Mentor survey</a>
+                <a href="/orientation.html">Orientation</a>
+                <span id="staffNav" class="staff-nav"></span>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" id="main" role="main" tabindex="-1">
+        <div class="header">
+            <h1>Program orientation</h1>
+            <p>What to expect from Mentor Match</p>
+        </div>
+
+        <div class="login-body">
+            <div class="seg" role="group" aria-label="Who are you?" id="who">
+                <button type="button" aria-pressed="false" data-for="mentee">I'm a student</button>
+                <button type="button" aria-pressed="false" data-for="mentor">I'm a mentor</button>
+            </div>
+            <div id="content" style="margin-top:18px"></div>
+        </div>
+    </div>
+
+    <script src="site.js"></script>
+    <script src="orientation.js"></script>
+</body>
+</html>

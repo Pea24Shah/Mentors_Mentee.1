@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientation - SJSU Mentor Match</title>
+    <link rel="stylesheet" href="sjsu-theme.css">
+    <link rel="stylesheet" href="mentor-system.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="console.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">🎓 SJSU Mentor Match</a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="/">Home</a>
+                <a href="/survey.html?role=student">Student survey</a>
+                <a href="/survey.html?role=mentor">Mentor survey</a>
+                <a href="/orientation.html">Orientation</a>
+                <span id="staffNav" class="staff-nav"></span>
+            </nav>
+        </div>
+    </header>
+    <nav class="console-tabs" id="consoleTabs"></nav>
+
+    <main class="wrap console-main" id="main" tabindex="-1">
+        <section class="timeline" id="timeline" aria-label="Program timeline"></section>
+        <section class="strip-kpis" id="stripKpis" aria-label="Program summary"></section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <div>
+                    <div class="eyebrow">Shared with mentors, mentees and staff</div>
+                    <h2>Orientation page</h2>
+                </div>
+                <div class="seg" role="group" aria-label="View as" id="orView">
+                    <button type="button" aria-pressed="true" data-v="edit">Edit</button>
+                    <button type="button" aria-pressed="false" data-v="mentee">Preview as mentee</button>
+                    <button type="button" aria-pressed="false" data-v="mentor">Preview as mentor</button>
+                </div>
+            </div>
+            <p class="tbl-note">Mentors and mentees read this page at <a href="/orientation.html">/orientation.html</a>. They only see sections meant for them, and only once you turn it on below. Nothing is shown to them until you do.</p>
+            <p class="status-line" id="orError" role="alert" hidden></p>
+            <div id="orBody"></div>
+        </section>
+        <div class="toast" id="toast" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">Undo</button></div>
+    </main>
+
+    <script src="site.js"></script>
+    <script src="console.js"></script>
+    <script src="staff-orientation.js"></script>
+</body>
+</html>

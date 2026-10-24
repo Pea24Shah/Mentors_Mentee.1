@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - SJSU Mentor Match</title>
+    <link rel="stylesheet" href="sjsu-theme.css">
+    <link rel="stylesheet" href="mentor-system.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="console.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">🎓 SJSU Mentor Match</a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="/">Home</a>
+                <a href="/survey.html?role=student">Student survey</a>
+                <a href="/survey.html?role=mentor">Mentor survey</a>
+                <a href="/orientation.html">Orientation</a>
+                <span id="staffNav" class="staff-nav"></span>
+            </nav>
+        </div>
+    </header>
+    <nav class="console-tabs" id="consoleTabs"></nav>
+
+    <main class="wrap console-main" id="main" tabindex="-1">
+        <section class="timeline" id="timeline" aria-label="Program timeline"></section>
+        <section class="strip-kpis" id="stripKpis" aria-label="Program summary"></section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <div>
+                    <div class="eyebrow">Every student compared with every mentor</div>
+                    <h2>Results</h2>
+                    <p class="hint" id="subtitle"></p>
+                </div>
+                <div class="toolbar">
+                    <span id="updated" class="hint"></span>
+                    <button type="button" id="refresh" class="btn primary">Refresh</button>
+                </div>
+            </div>
+
+            <div class="dash-body flush">
+                <p id="status" class="status" role="status" hidden></p>
+
+                <div id="content" hidden>
+                    <section class="kpis" id="kpis" aria-label="Summary"></section>
+
+                    <section class="charts" aria-label="Charts">
+                        <figure class="chart-card">
+                            <figcaption>Students with a match</figcaption>
+                            <div id="donut"></div>
+                        </figure>
+                        <figure class="chart-card">
+                            <figcaption>All pair scores</figcaption>
+                            <div id="histogram"></div>
+                        </figure>
+                        <figure class="chart-card">
+                            <figcaption>Matched students per mentor</figcaption>
+                            <div id="mentorBars" class="bars"></div>
+                        </figure>
+                        <figure class="chart-card">
+                            <figcaption>Average points by criterion</figcaption>
+                            <div id="criteriaBars" class="bars"></div>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Every student and mentor</h2>
+                        <p class="hint" id="legend"></p>
+                        <div class="matrix-wrap" tabindex="0" role="region" aria-label="Match percentage for every student and mentor. Scroll to see more.">
+                            <table id="matrix" class="matrix"></table>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Best match for each student</h2>
+                        <div class="matrix-wrap" tabindex="0" role="region" aria-label="Best match for each student">
+                            <table id="best" class="best"></table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="site.js"></script>
+    <script src="console.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

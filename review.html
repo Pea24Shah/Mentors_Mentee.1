@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match review - SJSU Mentor Match</title>
+    <link rel="stylesheet" href="sjsu-theme.css">
+    <link rel="stylesheet" href="mentor-system.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="console.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">🎓 SJSU Mentor Match</a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="/">Home</a>
+                <a href="/survey.html?role=student">Student survey</a>
+                <a href="/survey.html?role=mentor">Mentor survey</a>
+                <a href="/orientation.html">Orientation</a>
+                <span id="staffNav" class="staff-nav"></span>
+            </nav>
+        </div>
+    </header>
+    <nav class="console-tabs" id="consoleTabs"></nav>
+
+    <main class="wrap console-main" id="main" tabindex="-1">
+        <section class="timeline" id="timeline" aria-label="Program timeline"></section>
+        <section class="strip-kpis" id="stripKpis" aria-label="Program summary"></section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <div>
+                    <div class="eyebrow">Staff match review</div>
+                    <h2>Review matches</h2>
+                </div>
+                <div class="note"><b>Match percentages are visible to staff only.</b> Matches of 50% or more are made automatically. Below 50%, staff choose between two mentors.</div>
+            </div>
+
+            <div class="dash-body flush">
+                <p id="status" class="status" role="status" hidden></p>
+
+                <div id="content" hidden>
+                    <section class="kpis" id="stats" aria-label="Progress"></section>
+
+                    <section id="proposalSection">
+                        <h2 id="proposalTitle" tabindex="-1">Next student</h2>
+                        <p class="hint" id="proposalIntro"></p>
+                        <article class="proposal" id="proposal"></article>
+
+                        <div class="decision-buttons" id="decisionButtons"></div>
+                        <p class="hint" id="decisionHint"></p>
+                    </section>
+
+                    <section id="emptySection" hidden>
+                        <h2 id="emptyTitle" tabindex="-1">All students reviewed</h2>
+                        <p id="emptyText"></p>
+                        <div class="decision-buttons">
+                            <button type="button" id="unskip" class="btn-skip" hidden></button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Final matches</h2>
+                        <p class="hint">These are saved in data/matches.json.</p>
+                        <div class="matrix-wrap" tabindex="0" role="region" aria-label="Final matches">
+                            <table id="finalMatches" class="best"></table>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Students without a mentor</h2>
+                        <div class="matrix-wrap" tabindex="0" role="region" aria-label="Students without a mentor">
+                            <table id="unmatched" class="best"></table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="emailsPanel" hidden>
+            <div class="panel-head">
+                <div>
+                    <div class="eyebrow">After review</div>
+                    <h2>Match emails</h2>
+                </div>
+            </div>
+            <p class="tbl-note"><b>This app does not send email.</b> Download the match list, send each pair their introduction from your own email, then record it here. The timeline above updates when you do.</p>
+            <div class="sendbar" id="sendbar">
+                <span class="msg" id="sendMsg"></span>
+                <span class="actions">
+                    <a class="btn" id="csvLink" href="/api/console/matches.csv" download>Download match list (CSV)</a>
+                    <button type="button" class="btn primary" id="sendToggle"></button>
+                </span>
+            </div>
+            <p class="status-line" id="sendError" role="alert" hidden></p>
+        </section>
+    </main>
+
+    <script src="site.js"></script>
+    <script src="console.js"></script>
+    <script src="review.js"></script>
+</body>
+</html>
