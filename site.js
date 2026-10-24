@@ -19,7 +19,7 @@
     function markCurrent() {
         nav.querySelectorAll('a').forEach(link => {
             if (link.dataset.staffConsole) {
-                if (STAFF_PAGES.includes(window.location.pathname)) link.setAttribute('aria-current', 'page');
+                if (STAFF_PAGES.includes('/' + window.location.pathname.split('/').pop())) link.setAttribute('aria-current', 'page');
                 else link.removeAttribute('aria-current');
                 return;
             }
@@ -48,7 +48,7 @@
                 body: '{}'
             });
         } finally {
-            window.location.assign('/');
+            window.location.assign('./index.html');
         }
     }
 
